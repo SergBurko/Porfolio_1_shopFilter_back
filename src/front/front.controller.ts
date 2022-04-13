@@ -5,6 +5,6 @@ import { Constants } from '../common/constants';
 export class FrontController {
   @Get()
   returnWholeList() {
-    return Constants.companies;
+    return Constants.COMPANIES;
   }
 }
