@@ -10,5 +10,6 @@ export class Constants {
     new Company('Chocolate Factory', 'Istambul', 'ChokoRahatLukum'),
     new Company('Chocolate Factory', 'Geneva', 'Milka'),
   ];
-  static BAD_REQUEST_TXT = 'NO!..';
 }
+
+// TODO:
