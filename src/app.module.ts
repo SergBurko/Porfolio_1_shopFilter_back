@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { BackModule } from './back/back.module';
-import { FrontModule } from './front/front.module';
+import { CompanyModule } from './service/company.module';
 
 @Module({
-  imports: [BackModule, FrontModule],
+  imports: [CompanyModule],
   controllers: [],
   providers: [],
 })

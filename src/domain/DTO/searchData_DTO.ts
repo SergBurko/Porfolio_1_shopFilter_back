@@ -1,4 +1,4 @@
-export class SearchData {
+export class SearchData_DTO {
   snippets?: string;
   city?: string[];
   spec?: string[];

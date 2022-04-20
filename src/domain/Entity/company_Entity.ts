@@ -1,4 +1,4 @@
-export class Company {
+export class Company_Entity {
   spec: string;
   city: string;
   companyName: string;

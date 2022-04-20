@@ -1,12 +1,13 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
-import { SearchData } from '../common/class/searchData';
-import { Company } from '../common/class/company';
-import { Constants } from '../common/constants';
+import { SearchData_DTO } from '../domain/DTO/searchData_DTO';
+import { Company_Entity } from '../domain/Entity/company_Entity';
+import { HttpAlerts_Constant } from '../domain/Constant/httpAlerts_Constant';
+import { Company_MockData } from '../domain/MockData/company_MockData';
 
 @Injectable()
-export class BackService {
-  searchRelevantData(searchData: SearchData) {
-    let relevantCompanies: Company[] = Constants.COMPANIES;
+export class CompanyService {
+  searchRelevantData(searchData: SearchData_DTO) {
+    let relevantCompanies: Company_Entity[] = Company_MockData.COMPANIES;
     let tmpArr = [];
     let snippets: string[] = [];
     try {
@@ -35,7 +36,7 @@ export class BackService {
         for (const city of searchData.city) {
           tmpArr = tmpArr.concat(
             relevantCompanies.filter(
-              (company) => company.city.indexOf(city) >= 0,
+              (company) => company.city.toLowerCase().indexOf(city.toLowerCase()) >= 0,
             ),
           );
         }
@@ -61,7 +62,7 @@ export class BackService {
       }
     } catch (e) {
       throw new HttpException(
-        Constants.BAD_REQUEST_TXT,
+        HttpAlerts_Constant.BAD_REQUEST_TXT,
         HttpStatus.BAD_REQUEST,
       );
     }
